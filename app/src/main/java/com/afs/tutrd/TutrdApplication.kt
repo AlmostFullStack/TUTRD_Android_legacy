@@ -1,4 +1,4 @@
-package com.afs.turtd
+package com.afs.tutrd
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

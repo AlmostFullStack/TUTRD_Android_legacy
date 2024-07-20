@@ -1,13 +1,9 @@
-package com.afs.turtd
+package com.afs.tutrd
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.core.view.WindowCompat
-import com.afs.turtd.theme.TutrdTheme
+import com.afs.tutrd.theme.TutrdTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +12,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutrdTheme {
-                Text("hi")
+                TutrdApp()
             }
         }
     }

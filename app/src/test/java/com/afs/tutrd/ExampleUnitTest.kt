@@ -1,4 +1,4 @@
-package com.afs.turtd
+package com.afs.tutrd
 
 import org.junit.Test
 

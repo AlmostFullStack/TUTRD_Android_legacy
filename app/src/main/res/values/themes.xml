@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
 
-    <style name="Theme.TURTD" parent="android:Theme.Material.Light.NoActionBar" >
+    <style name="Theme.TUTRD" parent="android:Theme.Material.Light.NoActionBar" >
         <item name="android:windowBackground">@color/white</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>

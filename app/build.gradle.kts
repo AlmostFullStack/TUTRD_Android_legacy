@@ -3,14 +3,15 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     alias(libs.plugins.android.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "com.afs.turtd"
+    namespace = "com.afs.tutrd"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.afs.turtd"
+        applicationId = "com.afs.tutrd"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -65,6 +66,7 @@ dependencies {
     implementation(libs.androidx.material.icons)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.appcompat)
+    implementation(libs.kotlinx.serialization.json)
 
     // dagger hilt
     implementation(libs.hilt.android)

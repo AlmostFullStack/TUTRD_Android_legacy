@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TURTD"
+rootProject.name = "TUTRD"
 include(":app")
  

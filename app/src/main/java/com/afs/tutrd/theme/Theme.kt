@@ -1,4 +1,4 @@
-package com.afs.turtd.theme
+package com.afs.tutrd.theme
 
 import android.app.Activity
 import androidx.compose.foundation.ExperimentalFoundationApi
