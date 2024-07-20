@@ -13,8 +13,9 @@ import com.afs.tutrd.navigation.profile.navigateToProfile
 import com.afs.tutrd.navigation.profile.screen.Profile
 
 /**
- * Bottom Tab 을 위한 navigation
+ * Bottom Bar navigation 을 위해 작성한 navController
  *
+ * [BottomMenuTabs] 와 다르면 메인 bottomBar를 보여주지 않기 위해 작성 했습니다
  *
  */
 @Composable

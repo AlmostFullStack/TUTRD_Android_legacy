@@ -1,6 +1,7 @@
 package com.afs.tutrd.component.bottomBar
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,7 +30,9 @@ fun BottomBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(52.dp),
+            .height(52.dp)
+            .background(Color(0xFFEEFCF2)) //FIXME DIVIDER 임시
+        ,
         verticalAlignment = Alignment.CenterVertically
     ) {
         BottomMenuTabs.entries.forEach { item ->
