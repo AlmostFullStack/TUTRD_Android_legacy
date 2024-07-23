@@ -3,7 +3,10 @@ package com.afs.tutrd.navigation.controller
 import com.afs.tutrd.navigation.profile.screen.Profile
 import androidx.annotation.DrawableRes
 import com.afs.tutrd.R
+import com.afs.tutrd.navigation.classroom.screen.Classroom
 import com.afs.tutrd.navigation.home.screen.Home
+import com.afs.tutrd.navigation.lecture.screen.Lecture
+import com.afs.tutrd.navigation.pay.screen.Pay
 
 // FIXME ui fix 되면 메뉴 추가
 
@@ -20,6 +23,21 @@ enum class BottomMenuTabs(
         qualifierName = Home::class.java.name,
         iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
         label = "home"
+    ),
+    LECTURE(
+        qualifierName = Lecture::class.java.name,
+        iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
+        label = "lecture"
+    ),
+    PAY(
+        qualifierName = Pay::class.java.name,
+        iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
+        label = "pay"
+    ),
+    CLASSROOM(
+        qualifierName = Classroom::class.java.name,
+        iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
+        label = "classroom"
     ),
     PROFILE(
         qualifierName = Profile::class.java.name,
