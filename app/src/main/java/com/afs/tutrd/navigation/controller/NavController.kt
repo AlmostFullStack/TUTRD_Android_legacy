@@ -7,8 +7,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.afs.tutrd.navigation.classroom.navigateToClassroom
+import com.afs.tutrd.navigation.classroom.screen.Classroom
 import com.afs.tutrd.navigation.home.navigateToHome
 import com.afs.tutrd.navigation.home.screen.Home
+import com.afs.tutrd.navigation.lecture.navigateToLecture
+import com.afs.tutrd.navigation.lecture.screen.Lecture
+import com.afs.tutrd.navigation.pay.navigateToPay
+import com.afs.tutrd.navigation.pay.screen.Pay
 import com.afs.tutrd.navigation.profile.navigateToProfile
 import com.afs.tutrd.navigation.profile.screen.Profile
 
@@ -42,6 +48,9 @@ class TutrdNavController(
         return when (currentRoute) {
             Home::class.java.name -> BottomMenuTabs.HOME
             Profile::class.java.name -> BottomMenuTabs.PROFILE
+            Lecture::class.java.name -> BottomMenuTabs.LECTURE
+            Pay::class.java.name -> BottomMenuTabs.PAY
+            Classroom::class.java.name -> BottomMenuTabs.CLASSROOM
             else -> null
         }
     }
@@ -59,6 +68,9 @@ class TutrdNavController(
         when (route) {
             BottomMenuTabs.HOME -> navController.navigateToHome(navOptions)
             BottomMenuTabs.PROFILE -> navController.navigateToProfile(navOptions)
+            BottomMenuTabs.LECTURE -> navController.navigateToLecture(navOptions)
+            BottomMenuTabs.PAY -> navController.navigateToPay(navOptions)
+            BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptions)
         }
     }
 }
