@@ -12,7 +12,15 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.PlatformTextStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
+import com.afs.tutrd.R
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -50,3 +58,17 @@ object NoRippleTheme : RippleTheme {
         pressedAlpha = 0f,
     )
 }
+
+
+val Heading1 = TextStyle(
+//    fontFamily = AppleSDGothicNeo,
+    fontWeight = FontWeight.Bold,
+//    color = TextColor,
+    fontSize = 22.sp,
+    lineHeight = 22.sp,
+//    letterSpacing = LetterSpacing,
+    textAlign = TextAlign.Justify,
+    platformStyle = PlatformTextStyle(
+        includeFontPadding = false,
+    )
+)
