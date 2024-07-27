@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "952347680798",
+    "project_id": "tutrd-4a46a",
+    "storage_bucket": "tutrd-4a46a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952347680798:android:6c982e5bc8072585710e0f",
+        "android_client_info": {
+          "package_name": "com.afs.tutrd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhOMs9r1-Utx-DZjexHCdVfPunOmrJfjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
