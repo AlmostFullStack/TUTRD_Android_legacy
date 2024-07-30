@@ -15,17 +15,22 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.afs.tutrd.component.scaffold.TutrdScaffold
-import com.afs.tutrd.presentation.home.HomeViewModel
-import com.afs.tutrd.presentation.home.contract.HomeIntent
-import com.afs.tutrd.presentation.home.view.calendar.Day
-import com.afs.tutrd.presentation.home.view.calendar.DaysOfWeekTitle
-import com.kizitonwose.calendar.compose.HorizontalCalendar
+import com.afs.tutrd.presentation.home.viewmodel.HomeViewModel
 import com.kizitonwose.calendar.compose.rememberCalendarState
 import com.kizitonwose.calendar.core.daysOfWeek
 import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
 import java.time.DayOfWeek
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
+import androidx.compose.material3.Button
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
+import com.afs.tutrd.common.extension.collectInLaunchedEffectWithLifecycle
+import com.afs.tutrd.presentation.home.contract.HomeIntent
+import com.afs.tutrd.presentation.home.contract.HomeSideEffect
+import com.afs.tutrd.presentation.home.view.calendar.Calendar
+import android.util.Log
+import com.kizitonwose.calendar.core.yearMonth
 
 @Composable
 fun HomeScreen(
@@ -35,26 +40,30 @@ fun HomeScreen(
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     //calendar states
-    val currentMonth = remember { YearMonth.now() }
-    val startMonth = remember { currentMonth.minusMonths(100) } // Adjust as needed
-    val endMonth = remember { currentMonth.plusMonths(100) } // Adjust as needed
+//    val currentMonth = remember { YearMonth.now() }
+    val startMonth = remember { uiState.dateSelection.yearMonth.minusMonths(100) } // Adjust as needed
+    val endMonth = remember { uiState.dateSelection.yearMonth.plusMonths(100) } // Adjust as needed
     val firstDayOfWeek = remember { firstDayOfWeekFromLocale() } // Available from the library
-    val daysOfWeek = daysOfWeek(firstDayOfWeek = DayOfWeek.SUNDAY)
-
-    val state = rememberCalendarState(
+    val calendarState = rememberCalendarState(
         startMonth = startMonth,
         endMonth = endMonth,
-        firstVisibleMonth = currentMonth,
+        firstVisibleMonth = uiState.dateSelection.yearMonth,
         firstDayOfWeek = firstDayOfWeek
     )
 
-    val currentMonthFormatted = remember(state.firstVisibleMonth.yearMonth) {
-        state.firstVisibleMonth.yearMonth.format(DateTimeFormatter.ofPattern("yyyy년 MM월"))
+    val currentMonthFormatted = remember(calendarState.firstVisibleMonth.yearMonth) {
+        calendarState.firstVisibleMonth.yearMonth.format(DateTimeFormatter.ofPattern("yyyy년 MM월"))
     }
+
+
+    // Create a coroutine scope
+//    val coroutineScope = rememberCoroutineScope()
+//    val toNext = toNextMonth() {
+//        calendarState.scrollToMonth((calendarState.firstVisibleMonth.yearMonth).plusMonths(1))
+//    }
 
     TutrdScaffold(
         topBar = { HomeTopBar(title = currentMonthFormatted) {} }
-
     ) { paddingValues ->
         Box(
             modifier = modifier
@@ -65,23 +74,11 @@ fun HomeScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(20.dp)
             ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = modifier
-                        .padding(10.dp)
-                ) {
-                    DaysOfWeekTitle(daysOfWeek = daysOfWeek)
-                    HorizontalCalendar(
-                        state = state,
-                        dayContent = {
-                            Day(
-                                day = it,
-                                clickedDate = uiState.dateSelection,
-                                onDateClick = { clickedDate -> viewModel.postIntent(HomeIntent.ChangeDate(clickedDate)) },
-                            ) },
-                        calendarScrollPaged = true, //차이점 잘 모르겠음
-                    )
-                }
+                Calendar(
+                    selectedDate = uiState.dateSelection,
+                    calendarState = calendarState,
+                    changeSelectedDate = { clickedDate -> viewModel.postIntent(HomeIntent.ChangeDate(clickedDate)) }
+                )
                 Text(
                     uiState.dateSelection.toString(),
                     modifier = Modifier,
@@ -89,4 +86,12 @@ fun HomeScreen(
             }
         }
     }
+
+    viewModel.sideEffect.collectInLaunchedEffectWithLifecycle { sideEffect ->
+        when(sideEffect) {
+            is HomeSideEffect.NavigateToPrevMonth -> { calendarState.scrollToMonth(uiState.dateSelection.yearMonth) }
+            is HomeSideEffect.NavigateToNextMonth -> { calendarState.scrollToMonth(uiState.dateSelection.yearMonth) }
+        }
+    }
+
 }

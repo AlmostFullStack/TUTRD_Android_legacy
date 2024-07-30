@@ -4,11 +4,13 @@ import com.afs.tutrd.common.base.UiState
 import java.time.LocalDate
 
 data class HomeState(
-    var dateSelection: LocalDate
+    val dateSelection: LocalDate,
+    val monthSelection: LocalDate,
 ): UiState() {
     companion object {
         fun init() = HomeState(
-            dateSelection = LocalDate.now()
+            dateSelection = LocalDate.now(),
+            monthSelection = LocalDate.now()
         )
     }
 }

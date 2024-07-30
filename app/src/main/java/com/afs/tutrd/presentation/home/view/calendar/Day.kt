@@ -32,7 +32,7 @@ import java.time.LocalDate
 fun Day(
     day: CalendarDay,
     clickedDate: LocalDate,
-    onDateClick: (LocalDate) -> Unit,
+    onDateClick: (CalendarDay) -> Unit,
 ) {
     val isMonthDate = day.position == DayPosition.MonthDate
     val isEqual = day.date.isEqual(clickedDate)
@@ -49,12 +49,7 @@ fun Day(
     Box(
         modifier = Modifier
             .aspectRatio(0.9f) // This is important for square sizing!
-            .clickable(
-                onClick = {
-                    if (day.position == DayPosition.MonthDate) onDateClick(day.date)
-                }
-            )
-           ,
+            .clickable( onClick = { onDateClick(day) }),
         contentAlignment = Alignment.TopCenter,
     ) {
         Column(
@@ -74,7 +69,7 @@ fun Day(
                     color = dateTextColor,
                     )
             }
-            EventDots(arrayListOf(Tutoring("1", Color.Red), Tutoring("2", Color.Blue), Tutoring("3", Color.Green)))
+//            EventDots(arrayListOf(Tutoring("1", Color.Red), Tutoring("2", Color.Blue), Tutoring("3", Color.Green)))
         }
     }
 }
