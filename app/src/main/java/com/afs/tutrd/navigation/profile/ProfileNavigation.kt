@@ -6,13 +6,15 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.afs.tutrd.navigation.profile.screen.Profile
-import com.afs.tutrd.presentation.profile.ProfileScreen
+import com.afs.tutrd.presentation.profile.view.ProfileScreen
 
 internal fun NavGraphBuilder.profileScreen(
     modifier: Modifier = Modifier
 ) {
     composable<Profile> {
-        ProfileScreen(modifier = modifier)
+        ProfileScreen(
+
+            modifier = modifier)
     }
 }
 
