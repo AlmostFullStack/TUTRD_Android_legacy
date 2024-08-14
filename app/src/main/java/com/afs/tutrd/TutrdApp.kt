@@ -22,7 +22,6 @@ fun TutrdApp() {
     val tutrdNavController = rememberTutrdNavController()
     val navController = tutrdNavController.navController
     val isVisibleBottomBar = tutrdNavController.isInBottomTabs()
-
     val currentTab = tutrdNavController.mapRouteToTab()
 
     TutrdScaffold(
