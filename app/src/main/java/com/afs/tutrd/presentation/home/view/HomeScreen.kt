@@ -45,7 +45,7 @@ fun HomeScreen(
         firstDayOfWeek = firstDayOfWeek
     )
 
-    val currentMonthFormatted = rememberFirstMostVisibleMonth(state = calendarState, viewportPercent = 90f) {
+    val currentMonthFormatted = rememberFirstMostVisibleMonth(state = calendarState, viewportPercent = 95f) {
         viewModel.postIntent(HomeIntent.ChangeMonth(it))
     }
 
