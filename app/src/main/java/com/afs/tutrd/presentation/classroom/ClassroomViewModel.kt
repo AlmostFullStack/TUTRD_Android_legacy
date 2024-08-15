@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ClassroomViewModel @Inject constructor(
-    private val classroomRepository: ClassroomRepository
+    private val classroomRepository: ClassroomRepository,
 ):BaseViewModel<ClassroomState, ClassroomIntent, ClassroomSideEffect>(
     initialState = ClassroomState.init()
 ) {

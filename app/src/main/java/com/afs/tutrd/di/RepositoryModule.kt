@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
 
     @Binds
-    fun bindHealthCheckRepository(
+    fun bindClassroomRepository(
         classroomRepositoryImpl: ClassroomRepositoryImpl
     ): ClassroomRepository
 }
