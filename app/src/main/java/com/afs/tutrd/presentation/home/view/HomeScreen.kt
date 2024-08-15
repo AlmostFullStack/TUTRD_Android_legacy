@@ -14,22 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.afs.tutrd.component.scaffold.TutrdScaffold
-import com.afs.tutrd.presentation.home.viewmodel.HomeViewModel
-import com.kizitonwose.calendar.compose.rememberCalendarState
-import com.kizitonwose.calendar.core.daysOfWeek
-import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
-import java.time.DayOfWeek
-import java.time.YearMonth
-import java.time.format.DateTimeFormatter
-import androidx.compose.material3.Button
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import com.afs.tutrd.common.extension.collectInLaunchedEffectWithLifecycle
+import com.afs.tutrd.component.scaffold.TutrdScaffold
 import com.afs.tutrd.presentation.home.contract.HomeIntent
 import com.afs.tutrd.presentation.home.contract.HomeSideEffect
+import com.afs.tutrd.presentation.home.stateholder.rememberFirstMostVisibleMonth
+import com.afs.tutrd.presentation.home.util.displayText
 import com.afs.tutrd.presentation.home.view.calendar.Calendar
-import android.util.Log
+import com.afs.tutrd.presentation.home.viewmodel.HomeViewModel
+import com.kizitonwose.calendar.compose.rememberCalendarState
+import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
 import com.kizitonwose.calendar.core.yearMonth
 
 @Composable
@@ -51,8 +45,8 @@ fun HomeScreen(
         firstDayOfWeek = firstDayOfWeek
     )
 
-    val currentMonthFormatted = remember(calendarState.firstVisibleMonth.yearMonth) {
-        calendarState.firstVisibleMonth.yearMonth.format(DateTimeFormatter.ofPattern("yyyy년 MM월"))
+    val currentMonthFormatted = rememberFirstMostVisibleMonth(state = calendarState, viewportPercent = 95f) {
+        viewModel.postIntent(HomeIntent.ChangeMonth(it))
     }
 
 
@@ -63,7 +57,7 @@ fun HomeScreen(
 //    }
 
     TutrdScaffold(
-        topBar = { HomeTopBar(title = currentMonthFormatted) {} }
+        topBar = { HomeTopBar(title = currentMonthFormatted.yearMonth.displayText()) {} }
     ) { paddingValues ->
         Box(
             modifier = modifier
