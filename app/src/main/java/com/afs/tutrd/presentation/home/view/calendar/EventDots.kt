@@ -19,6 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.afs.tutrd.component.colordot.ColorDot
+import com.afs.tutrd.component.colordot.DotSize
 import com.afs.tutrd.data.model.tutoring.Tutoring
 
 @Composable
@@ -58,15 +60,7 @@ fun RowOfGrid(rowList: List<Tutoring>, columnWidth: Dp) {
     LazyRow {
         items(rowList.size) { index ->
             val item = rowList[index]
-            Icon(
-                imageVector = Icons.Filled.Check,
-                contentDescription = "eventDot",
-                modifier = Modifier
-                    .size(10.dp)
-                    .padding(2.dp)
-                    .background(item.classProfileColor, shape = CircleShape),
-                tint = item.classProfileColor
-            )
+            ColorDot(color = item.classProfileColor, size = DotSize.Small)
 
         }
     }
