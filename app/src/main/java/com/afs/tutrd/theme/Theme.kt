@@ -5,8 +5,11 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
-import androidx.compose.material.ripple.RippleTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalRippleConfiguration
+//import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RippleConfiguration
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
@@ -19,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun TutrdTheme(
     content: @Composable () -> Unit
@@ -32,8 +35,20 @@ fun TutrdTheme(
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
         }
     }
+
+    val myRippleConfiguration = RippleConfiguration(
+        color = Color.Unspecified,
+        rippleAlpha = RippleAlpha(
+            draggedAlpha = 0f,
+            focusedAlpha = 0f,
+            hoveredAlpha = 0f,
+            pressedAlpha = 0f,
+        )
+    )
+
     CompositionLocalProvider(
-        LocalRippleTheme provides NoRippleTheme,
+//        LocalRippleTheme provides NoRippleTheme,
+        LocalRippleConfiguration provides myRippleConfiguration,
         LocalOverscrollConfiguration provides null,
     ) {
         MaterialTheme(
@@ -42,19 +57,21 @@ fun TutrdTheme(
     }
 }
 
-// no ripple
-object NoRippleTheme : RippleTheme {
-    @Composable
-    override fun defaultColor(): Color = Color.Unspecified
 
-    @Composable
-    override fun rippleAlpha(): RippleAlpha = RippleAlpha(
-        draggedAlpha = 0f,
-        focusedAlpha = 0f,
-        hoveredAlpha = 0f,
-        pressedAlpha = 0f,
-    )
-}
+
+//// no ripple
+//object NoRippleTheme : RippleTheme {
+//    @Composable
+//    override fun defaultColor(): Color = Color.Unspecified
+//
+//    @Composable
+//    override fun rippleAlpha(): RippleAlpha = RippleAlpha(
+//        draggedAlpha = 0f,
+//        focusedAlpha = 0f,
+//        hoveredAlpha = 0f,
+//        pressedAlpha = 0f,
+//    )
+//}
 
 val Heading1 = TextStyle(
 //    fontFamily = AppleSDGothicNeo,

@@ -81,4 +81,6 @@ dependencies {
     //calendar
     coreLibraryDesugaring(libs.desugaring)
     implementation(libs.calendar.compose)
+    implementation(libs.material3)
+
 }
