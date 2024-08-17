@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     alias(libs.plugins.android.hilt)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.gms)
 }
 
 android {
