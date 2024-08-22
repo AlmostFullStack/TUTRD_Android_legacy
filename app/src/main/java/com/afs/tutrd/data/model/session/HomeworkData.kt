@@ -1,4 +1,4 @@
-package com.afs.tutrd.data.model.classroom
+package com.afs.tutrd.data.model.session
 
 import com.google.firebase.firestore.PropertyName
 

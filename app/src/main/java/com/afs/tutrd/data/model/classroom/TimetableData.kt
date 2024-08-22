@@ -7,10 +7,9 @@ data class TimetableData(
     @PropertyName("classHours")
     val classHours: Int = 0,
     @PropertyName("endDate")
-    val endDate: Timestamp = Timestamp.now(),
+    val endDate: Timestamp? = null,
     @PropertyName("repetition")
     val repetition: RepetitionData = RepetitionData(),
     @PropertyName("startDate")
     val startDate: Timestamp = Timestamp.now()
-
 )

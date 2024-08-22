@@ -1,17 +1,10 @@
 package com.afs.tutrd.presentation.home.view.calendar
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,11 +14,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.component.colordot.ColorDot
 import com.afs.tutrd.component.colordot.DotSize
-import com.afs.tutrd.data.model.tutoring.Tutoring
+import com.afs.tutrd.data.model.sessions.SessionData
 
 @Composable
 fun EventDots(
-    tutorings: ArrayList<Tutoring> //Fixme
+    tutorings: ArrayList<SessionData> //Fixme
 ) {
     Box(
         modifier = Modifier
@@ -39,7 +32,7 @@ fun EventDots(
 
 @Composable
 fun DotsGrid(
-    tutorings: ArrayList<Tutoring> //Fixme
+    tutorings: ArrayList<SessionData> //Fixme
 ) {
     val rowsCount = if (tutorings.size <= 2) 1 else 2
     BoxWithConstraints {
@@ -56,7 +49,7 @@ fun DotsGrid(
 }
 
 @Composable
-fun RowOfGrid(rowList: List<Tutoring>, columnWidth: Dp) {
+fun RowOfGrid(rowList: List<SessionData>, columnWidth: Dp) {
     LazyRow {
         items(rowList.size) { index ->
             val item = rowList[index]
@@ -69,5 +62,5 @@ fun RowOfGrid(rowList: List<Tutoring>, columnWidth: Dp) {
 @Preview
 @Composable
 private fun a() {
-    EventDots(arrayListOf(Tutoring("1", Color.Red), Tutoring("2", Color.Blue), Tutoring("3", Color.Green)))
+    EventDots(arrayListOf(SessionData("1", Color.Red), SessionData("2", Color.Blue), SessionData("3", Color.Green)))
 }

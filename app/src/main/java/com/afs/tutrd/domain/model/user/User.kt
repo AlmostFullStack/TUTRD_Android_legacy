@@ -7,10 +7,10 @@ data class User(
     val name: String,
     val email: String,
     val phone: String,
-    val profileImageURL: String,
+    val profileImageUrl: String,
     val introduction: String,
     val tuteeId: ArrayList<String>,
-    val specialization: ArrayList<String>,
+    val specialties: ArrayList<String>,
     val membership: String,
     val membershipDueDate: LocalDateTime
 )

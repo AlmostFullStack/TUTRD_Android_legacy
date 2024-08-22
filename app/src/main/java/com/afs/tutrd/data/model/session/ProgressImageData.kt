@@ -1,8 +1,8 @@
-package com.afs.tutrd.data.model.classroom
+package com.afs.tutrd.data.model.session
 
 import com.google.firebase.firestore.PropertyName
 
-data class ProgressImagesData(
+data class ProgressImageData(
     @PropertyName("description")
     val description: String = "",
     @PropertyName("image")
