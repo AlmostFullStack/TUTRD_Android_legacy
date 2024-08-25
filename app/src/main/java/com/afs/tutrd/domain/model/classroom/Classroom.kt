@@ -1,11 +1,16 @@
 package com.afs.tutrd.domain.model.classroom
 
-import com.afs.tutrd.domain.model.schedule.Schedule
-import com.afs.tutrd.domain.model.tutoring.Tutoring
-
 data class Classroom(
+    val classroomName: String,
+    val classroomProfileColor: String,
+    val classroomProfileImage: String,
+    val fixedCount: Int,
+    val payMethod: String,
+    val repetition: Repetition,
+    val timetable: List<TimeTable>,
+    val tuitionFee: Int,
+    val tuitionFeeUnit: String,
+    val tutees: List<String>,
     val tutorId: String,
-    val tutees: ArrayList<String>,
-    val tutorings: ArrayList<Tutoring>,
-    val timetable: ArrayList<Schedule>
-)
+    val sessions: List<String>,
+    )

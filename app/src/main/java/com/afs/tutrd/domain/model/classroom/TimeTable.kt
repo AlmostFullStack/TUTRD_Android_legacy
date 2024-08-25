@@ -1,9 +1,8 @@
-package com.afs.tutrd.domain.model.schedule
+package com.afs.tutrd.domain.model.classroom
 
-import com.afs.tutrd.domain.model.repetition.Repetition
 import java.time.LocalDate
 
-data class Schedule(
+data class TimeTable(
     val startDate: LocalDate,
     val repetition: Repetition,
     val endDate: LocalDate?,

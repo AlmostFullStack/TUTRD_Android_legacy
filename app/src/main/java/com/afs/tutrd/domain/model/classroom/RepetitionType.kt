@@ -1,4 +1,4 @@
-package com.afs.tutrd.domain.model.repetition
+package com.afs.tutrd.domain.model.classroom
 
 enum class RepetitionType {
     NONE,
