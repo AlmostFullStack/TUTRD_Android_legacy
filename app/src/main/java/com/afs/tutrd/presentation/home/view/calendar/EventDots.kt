@@ -8,17 +8,16 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.component.colordot.ColorDot
 import com.afs.tutrd.component.colordot.DotSize
-import com.afs.tutrd.data.model.sessions.SessionData
+import com.afs.tutrd.domain.manager.ClassroomManager
+import com.afs.tutrd.domain.model.session.Session
 
 @Composable
 fun EventDots(
-    tutorings: ArrayList<SessionData> //Fixme
+    sessions: ArrayList<Session> //Fixme
 ) {
     Box(
         modifier = Modifier
@@ -26,13 +25,13 @@ fun EventDots(
         contentAlignment = Alignment.Center
 
     ) {
-        DotsGrid(tutorings = tutorings)
+        DotsGrid(tutorings = sessions)
     }
 }
 
 @Composable
 fun DotsGrid(
-    tutorings: ArrayList<SessionData> //Fixme
+    tutorings: ArrayList<Session> //Fixme
 ) {
     val rowsCount = if (tutorings.size <= 2) 1 else 2
     BoxWithConstraints {
@@ -49,18 +48,17 @@ fun DotsGrid(
 }
 
 @Composable
-fun RowOfGrid(rowList: List<SessionData>, columnWidth: Dp) {
+fun RowOfGrid(rowList: List<Session>, columnWidth: Dp) {
     LazyRow {
         items(rowList.size) { index ->
             val item = rowList[index]
-            ColorDot(color = item.classProfileColor, size = DotSize.Small)
-
+            ColorDot(color = ClassroomManager.getClassroomProfileColor(item.classRoomId), size = DotSize.Small)
         }
     }
 }
 
-@Preview
-@Composable
-private fun a() {
-    EventDots(arrayListOf(SessionData("1", Color.Red), SessionData("2", Color.Blue), SessionData("3", Color.Green)))
-}
+//@Preview
+//@Composable
+//private fun a() {
+//    EventDots(arrayListOf(SessionData("1", Color.Red), SessionData("2", Color.Blue), SessionData("3", Color.Green)))
+//}
