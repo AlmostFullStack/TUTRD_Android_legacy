@@ -2,7 +2,6 @@ package com.afs.tutrd.data.model.classroom
 
 import com.google.firebase.firestore.PropertyName
 
-// TODO 이름 바꾸기 (사유: 겹침)
 data class ClassroomData(
     @PropertyName("classroomName")
     val classroomName: String = "",
@@ -26,6 +25,6 @@ data class ClassroomData(
     val tutees: List<String> = emptyList(),
     @PropertyName("tutorId")
     val tutorId: String = "",
-    @PropertyName("tutoring")
-    val tutoring: List<TutoringData> = emptyList(),
+    @PropertyName("sessions")
+    val tutoring: List<String> = emptyList(),
 )

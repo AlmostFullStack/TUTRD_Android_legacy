@@ -1,9 +1,12 @@
-package com.afs.tutrd.data.model.classroom
+package com.afs.tutrd.data.model.session
 
+import com.afs.tutrd.data.model.classroom.HomeworkData
+import com.afs.tutrd.data.model.classroom.HomeworkImageData
+import com.afs.tutrd.data.model.classroom.ProgressImageData
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.PropertyName
 
-data class TutoringData(
+data class SessionData(
     @PropertyName("attendance")
     val attendance: List<String> = emptyList(),
     @PropertyName("dateTime")
@@ -20,9 +23,12 @@ data class TutoringData(
     @PropertyName("progress")
     val progress: List<String> = emptyList(),
     @PropertyName("progressImages")
-    val progressImages: List<ProgressImagesData> = emptyList(),
+    val progressImages: List<ProgressImageData> = emptyList(),
     @PropertyName("status")
     val status: Int = 0,
-    @PropertyName("tutoringId")
-    val tutoringId: String = "",
+    @PropertyName("sessionId")
+    val sessionId: String = "",
+    @get:PropertyName("isHomeworkDone")
+    @set:PropertyName("isHomeworkDone")
+    var isHomeworkDone: Boolean
 )

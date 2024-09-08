@@ -1,6 +1,7 @@
 package com.afs.tutrd.presentation.home.view
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,6 +37,7 @@ import com.afs.tutrd.presentation.home.util.displayText
 import com.afs.tutrd.presentation.home.view.bottomsheet.BottomSheetSessionList
 import com.afs.tutrd.presentation.home.view.calendar.Calendar
 import com.afs.tutrd.presentation.home.viewmodel.HomeViewModel
+import com.afs.tutrd.theme.TutrdBackground
 import com.kizitonwose.calendar.compose.rememberCalendarState
 import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
 import com.kizitonwose.calendar.core.yearMonth
@@ -91,6 +93,7 @@ fun HomeScreen(
             Box(
                 modifier = modifier
                     .fillMaxWidth()
+                    .background(TutrdBackground)
             ) {
                 Calendar(
                     selectedDate = uiState.dateSelection,

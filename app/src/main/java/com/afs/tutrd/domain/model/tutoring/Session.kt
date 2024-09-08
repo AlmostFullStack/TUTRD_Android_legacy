@@ -2,7 +2,7 @@ package com.afs.tutrd.domain.model.tutoring
 
 import java.time.LocalDateTime
 
-data class Tutoring (
+data class Session (
     val tutoringId: String,
     val classRoomId: String,
     val dateTime: LocalDateTime,
@@ -10,8 +10,9 @@ data class Tutoring (
     val progress: ArrayList<String>,
     val homework: ArrayList<Homework>,
     val attendance: ArrayList<String>,
-    val status: TutoringStatus,
+    val status: SessionStatus,
     val isComplete: Boolean,
     val progressImages: ArrayList<ProgressImage>,
-    val homeworkImages: ArrayList<HomeworkImage>
+    val homeworkImages: ArrayList<HomeworkImage>,
+    val isHomeworkDone: Boolean,
 )

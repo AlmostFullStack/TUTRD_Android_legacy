@@ -1,31 +1,22 @@
 package com.afs.tutrd.presentation.home.view.calendar
-
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.component.colordot.ColorDot
 import com.afs.tutrd.component.colordot.DotSize
-import com.afs.tutrd.data.model.tutoring.Tutoring
+import com.afs.tutrd.domain.model.tutoring.Session
 
 @Composable
 fun EventDots(
-    tutorings: ArrayList<Tutoring> //Fixme
+    sessions: ArrayList<Session> //Fixme
 ) {
     Box(
         modifier = Modifier
@@ -33,13 +24,13 @@ fun EventDots(
         contentAlignment = Alignment.Center
 
     ) {
-        DotsGrid(tutorings = tutorings)
+        DotsGrid(tutorings = sessions)
     }
 }
 
 @Composable
 fun DotsGrid(
-    tutorings: ArrayList<Tutoring> //Fixme
+    tutorings: ArrayList<Session> //Fixme
 ) {
     val rowsCount = if (tutorings.size <= 2) 1 else 2
     BoxWithConstraints {
@@ -56,18 +47,17 @@ fun DotsGrid(
 }
 
 @Composable
-fun RowOfGrid(rowList: List<Tutoring>, columnWidth: Dp) {
+fun RowOfGrid(rowList: List<Session>, columnWidth: Dp) {
     LazyRow {
         items(rowList.size) { index ->
             val item = rowList[index]
-            ColorDot(color = item.classProfileColor, size = DotSize.Small)
-
+            ColorDot(color = Color.Red, size = DotSize.Small)
         }
     }
 }
 
-@Preview
-@Composable
-private fun a() {
-    EventDots(arrayListOf(Tutoring("1", Color.Red), Tutoring("2", Color.Blue), Tutoring("3", Color.Green)))
-}
+//@Preview
+//@Composable
+//private fun a() {
+//    EventDots(arrayListOf(Tutoring("1", Color.Red), Tutoring("2", Color.Blue), Tutoring("3", Color.Green)))
+//}
