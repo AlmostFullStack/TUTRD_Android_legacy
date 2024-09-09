@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.afs.tutrd.theme.Tutrd
 
 sealed class DotSize {
     data object Big : DotSize()
@@ -40,7 +41,7 @@ fun ColorDot(
 fun preview() {
     Row() {
         ColorDot(
-            Color.Red,
+            Tutrd,
             DotSize.Big
         )
         ColorDot(

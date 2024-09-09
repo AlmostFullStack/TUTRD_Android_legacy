@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.afs.tutrd.component.sessioncard.SessionCard
 
 @Composable
 fun BottomSheetSessionList(
@@ -17,7 +18,11 @@ fun BottomSheetSessionList(
         Modifier
             .heightIn(min = 0.dp, max = screenHeight - 120.dp)
             .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        SessionCard()
+        SessionCard()
+        SessionCard()
+        SessionCard()
     }
 }
