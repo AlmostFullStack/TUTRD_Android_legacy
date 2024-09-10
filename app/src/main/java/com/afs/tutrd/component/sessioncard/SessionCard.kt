@@ -35,7 +35,7 @@ import com.afs.tutrd.component.button.SessionCompleteButton
 import com.afs.tutrd.component.card.Card
 import com.afs.tutrd.component.colordot.ColorDot
 import com.afs.tutrd.component.colordot.DotSize
-import com.afs.tutrd.domain.model.tutoring.SessionStatus
+import com.afs.tutrd.domain.model.session.SessionStatus
 
 @Composable
 fun SessionCard(
