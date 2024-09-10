@@ -25,4 +25,7 @@ data class SessionData(
     val status: Int = 0,
     @PropertyName("sessionId")
     val sessionId: String = "",
+    @get:PropertyName("isHomeworkDone")
+    @set:PropertyName("isHomeworkDone")
+    var isHomeworkDone: Boolean
 )

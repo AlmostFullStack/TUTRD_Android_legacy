@@ -1,5 +1,4 @@
 package com.afs.tutrd.presentation.home.view.calendar
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.padding
@@ -8,11 +7,11 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.component.colordot.ColorDot
 import com.afs.tutrd.component.colordot.DotSize
-import com.afs.tutrd.domain.manager.ClassroomManager
 import com.afs.tutrd.domain.model.session.Session
 
 @Composable
@@ -52,7 +51,7 @@ fun RowOfGrid(rowList: List<Session>, columnWidth: Dp) {
     LazyRow {
         items(rowList.size) { index ->
             val item = rowList[index]
-            ColorDot(color = ClassroomManager.getClassroomProfileColor(item.classRoomId), size = DotSize.Small)
+            ColorDot(color = Color.Red, size = DotSize.Small)
         }
     }
 }
@@ -60,5 +59,5 @@ fun RowOfGrid(rowList: List<Session>, columnWidth: Dp) {
 //@Preview
 //@Composable
 //private fun a() {
-//    EventDots(arrayListOf(SessionData("1", Color.Red), SessionData("2", Color.Blue), SessionData("3", Color.Green)))
+//    EventDots(arrayListOf(Tutoring("1", Color.Red), Tutoring("2", Color.Blue), Tutoring("3", Color.Green)))
 //}

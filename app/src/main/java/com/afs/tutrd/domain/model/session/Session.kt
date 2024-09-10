@@ -13,5 +13,6 @@ data class Session (
     val status: SessionStatus,
     val isComplete: Boolean,
     val progressImages: ArrayList<ProgressImage>,
-    val homeworkImages: ArrayList<HomeworkImage>
+    val homeworkImages: ArrayList<HomeworkImage>,
+    val isHomeworkDone: Boolean,
 )

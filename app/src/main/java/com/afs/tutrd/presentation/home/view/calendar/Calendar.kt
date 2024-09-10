@@ -21,7 +21,6 @@ fun Calendar(
     changeSelectedDate: (clickedDate: CalendarDay) -> Unit
 ) {
     val TAG = "calendar"
-
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier

@@ -26,5 +26,5 @@ data class ClassroomData(
     @PropertyName("tutorId")
     val tutorId: String = "",
     @PropertyName("sessions")
-    val sessions: List<String> = emptyList(),
+    val sessions: List<String> = emptyList()
 )

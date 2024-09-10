@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.afs.tutrd.theme.TutrdBackground
 import com.kizitonwose.calendar.core.CalendarDay
 import com.kizitonwose.calendar.core.DayPosition
 import java.time.LocalDate
@@ -33,7 +34,7 @@ fun Day(
     val dateBoxColor = animateColorAsState(
         targetValue =
         if (isMonthDate && isEqual) Color.Black
-        else if (isMonthDate) Color.White
+        else if (isMonthDate) TutrdBackground
         else Color.Transparent, label = "color",
         animationSpec = tween(
             durationMillis = 300, // 애니메이션이 1초 동안 지속됨

@@ -1,5 +1,5 @@
 package com.afs.tutrd.domain.model.classroom
-
+import com.afs.tutrd.domain.model.repetition.Repetition
 import java.time.LocalDate
 
 data class TimeTable(

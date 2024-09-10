@@ -1,4 +1,4 @@
-package com.afs.tutrd.domain.model.classroom
+package com.afs.tutrd.domain.model.repetition
 
 import java.time.DayOfWeek
 
