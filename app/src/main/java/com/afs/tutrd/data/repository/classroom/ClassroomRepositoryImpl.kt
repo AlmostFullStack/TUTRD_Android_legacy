@@ -20,7 +20,9 @@ class ClassroomRepositoryImpl @Inject constructor(
             runCatching {
                 firestore.collection(Collection.CLASSROOM)
                     .whereEqualTo(Field.TUTOR_ID, tutorId)
-                    .get().await().toObjects(ClassroomData::class.java)
+                    .get()
+                    .await()
+                    .toObjects(ClassroomData::class.java)
             }
         }
 }

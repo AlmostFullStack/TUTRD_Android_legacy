@@ -63,7 +63,7 @@ fun HomeScreen(
     val currentMonthFormatted = rememberFirstMostVisibleMonth(state = calendarState, viewportPercent = 95f) {
         viewModel.postIntent(HomeIntent.ChangeMonth(it))
     }
-    val calendarHeight = 440.dp
+    val calendarHeight = 435.dp
 
     //scaffold state
     val scope = rememberCoroutineScope()
@@ -73,13 +73,18 @@ fun HomeScreen(
 
 
     TutrdScaffold(
-        topBar = { HomeTopBar(title = currentMonthFormatted.yearMonth.displayText()) {} }
+        topBar = {
+            HomeTopBar(
+                title = currentMonthFormatted.yearMonth.displayText(),
+                onClickTitle = {},
+                onAddSession = {}
+            ) }
     ) { paddingValues ->
         BottomSheetScaffold(
             modifier = modifier
                 .padding(paddingValues),
             containerColor = Color.Transparent,
-            sheetContentColor = Color.Transparent,
+            sheetContentColor = Color.Black,
             sheetContainerColor = Color.White,
             sheetShadowElevation = 20.dp,
             scaffoldState = scaffoldState,
