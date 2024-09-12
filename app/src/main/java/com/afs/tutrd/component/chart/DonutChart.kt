@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.theme.LightGray
+import com.afs.tutrd.theme.MediumTitle2
 import com.afs.tutrd.theme.Tutrd
 
 @Composable
@@ -75,7 +76,11 @@ fun DonutChart(
                 style = Stroke(width = width.toPx(), cap = StrokeCap.Butt)
             )
         }
-        Text(text = "${progress}/$total")
+        Text(
+            text = "${progress}/$total",
+            style = MediumTitle2,
+            color = Color.Black
+        )
     }
 }
 
