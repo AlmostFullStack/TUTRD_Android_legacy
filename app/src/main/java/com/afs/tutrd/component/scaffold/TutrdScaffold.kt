@@ -8,6 +8,7 @@ import androidx.compose.material3.ScaffoldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.afs.tutrd.theme.TutrdBackground
 
 @Composable
 fun TutrdScaffold(
@@ -17,7 +18,7 @@ fun TutrdScaffold(
     snackBarHost: @Composable () -> Unit = { },
     floatingActionButton: @Composable () -> Unit = { },
     floatingActionButtonPosition: FabPosition = FabPosition.End,
-    containerColor: Color = Color.Transparent, // FIXME
+    containerColor: Color = TutrdBackground, // FIXME
     contentColor: Color = Color.Black, // FIXME
     contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
     content: @Composable (PaddingValues) -> Unit
