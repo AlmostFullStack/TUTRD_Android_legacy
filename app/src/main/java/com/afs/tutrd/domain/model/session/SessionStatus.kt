@@ -1,4 +1,4 @@
-package com.afs.tutrd.domain.model.tutoring
+package com.afs.tutrd.domain.model.session
 
 enum class SessionStatus {
     ROUTINE, //시간표 상 수업

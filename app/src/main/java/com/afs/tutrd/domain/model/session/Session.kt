@@ -1,4 +1,4 @@
-package com.afs.tutrd.domain.model.tutoring
+package com.afs.tutrd.domain.model.session
 
 import java.time.LocalDateTime
 

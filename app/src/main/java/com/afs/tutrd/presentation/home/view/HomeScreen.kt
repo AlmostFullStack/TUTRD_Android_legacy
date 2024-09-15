@@ -30,6 +30,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.afs.tutrd.common.extension.collectInLaunchedEffectWithLifecycle
 import com.afs.tutrd.component.scaffold.TutrdScaffold
+import com.afs.tutrd.component.topbar.HomeTopBar
 import com.afs.tutrd.presentation.home.contract.HomeIntent
 import com.afs.tutrd.presentation.home.contract.HomeSideEffect
 import com.afs.tutrd.presentation.home.stateholder.rememberFirstMostVisibleMonth

@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.component.colordot.ColorDot
 import com.afs.tutrd.component.colordot.DotSize
-import com.afs.tutrd.domain.model.tutoring.Session
+import com.afs.tutrd.domain.model.session.Session
 
 @Composable
 fun EventDots(
