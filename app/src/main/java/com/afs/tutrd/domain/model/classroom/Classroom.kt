@@ -13,7 +13,7 @@ data class Classroom(
     val timetable: List<Schedule>,
     val tuitionFee: Int,
     val tuitionFeeUnit: String,
-    val tutees: List<String>,
+    val tutees: List<Tutee>,
     val tutorId: String,
     val sessions: List<String>,
     )
