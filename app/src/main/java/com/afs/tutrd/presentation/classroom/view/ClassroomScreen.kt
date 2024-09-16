@@ -1,6 +1,5 @@
 package com.afs.tutrd.presentation.classroom.view
 
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.afs.tutrd.component.scaffold.TutrdScaffold
-import com.afs.tutrd.component.topbar.ClassroomTopBar
 
 @Composable
 fun ClassroomScreen() {

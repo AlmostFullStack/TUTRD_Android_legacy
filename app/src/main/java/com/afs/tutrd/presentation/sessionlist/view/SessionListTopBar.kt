@@ -1,4 +1,4 @@
-package com.afs.tutrd.component.topbar
+package com.afs.tutrd.presentation.sessionlist.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,8 +21,7 @@ import com.afs.tutrd.theme.Heading1
 import com.afs.tutrd.theme.TutrdBackground
 
 @Composable
-internal fun HomeTopBar(
-    title: String,
+internal fun SessionListTopBar(
     onClickTitle: () -> Unit,
     onAddSession: () -> Unit
 ) {
@@ -37,12 +36,12 @@ internal fun HomeTopBar(
     ) {
         Text(
             modifier = Modifier,
-            text = title,
+            text = "수업 목록",
             style = Heading1
         )
         Spacer(
             modifier = Modifier
-            .weight(1f)
+                .weight(1f)
         )
         IconButton(
             onClick = { onAddSession() },
@@ -53,10 +52,4 @@ internal fun HomeTopBar(
             }
         )
     }
-
-}
-@Preview(showBackground = true)
-@Composable
-private fun previewHomeTopBar() {
-    HomeTopBar(title = "2024년 7월", onAddSession = {}, onClickTitle = {})
 }

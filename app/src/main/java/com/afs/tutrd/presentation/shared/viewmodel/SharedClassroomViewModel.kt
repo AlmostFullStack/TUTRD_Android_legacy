@@ -1,4 +1,4 @@
-package com.afs.tutrd.presentation.shared
+package com.afs.tutrd.presentation.shared.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.afs.tutrd.domain.model.classroom.Classroom
