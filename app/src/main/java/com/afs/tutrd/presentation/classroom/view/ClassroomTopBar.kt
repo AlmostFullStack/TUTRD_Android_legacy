@@ -1,4 +1,4 @@
-package com.afs.tutrd.component.topbar
+package com.afs.tutrd.presentation.classroom.view
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row

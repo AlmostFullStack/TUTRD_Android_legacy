@@ -12,7 +12,7 @@ import com.afs.tutrd.navigation.classroom.classroomScreen
 import com.afs.tutrd.navigation.controller.rememberTutrdNavController
 import com.afs.tutrd.navigation.home.homeScreen
 import com.afs.tutrd.navigation.home.screen.Home
-import com.afs.tutrd.navigation.session.sessionScreen
+import com.afs.tutrd.navigation.sessionlist.sessionListScreen
 import com.afs.tutrd.navigation.pay.payScreen
 import com.afs.tutrd.navigation.profile.profileScreen
 
@@ -40,7 +40,7 @@ fun TutrdApp() {
             exitTransition = { ExitTransition.None }
         ) {
             homeScreen(modifier = Modifier.padding(it))
-            sessionScreen(modifier = Modifier.padding(it))
+            sessionListScreen(modifier = Modifier.padding(it))
             payScreen(modifier = Modifier.padding(it))
             classroomScreen(modifier = Modifier.padding(it))
             profileScreen(modifier = Modifier.padding(it))

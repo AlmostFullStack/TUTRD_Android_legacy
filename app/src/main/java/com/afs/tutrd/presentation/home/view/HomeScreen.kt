@@ -1,27 +1,16 @@
 package com.afs.tutrd.presentation.home.view
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.BottomSheetScaffold
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
@@ -63,7 +52,7 @@ fun HomeScreen(
     val currentMonthFormatted = rememberFirstMostVisibleMonth(state = calendarState, viewportPercent = 95f) {
         viewModel.postIntent(HomeIntent.ChangeMonth(it))
     }
-    val calendarHeight = 440.dp
+    val calendarHeight = 435.dp
 
     //scaffold state
     val scope = rememberCoroutineScope()
@@ -73,13 +62,18 @@ fun HomeScreen(
 
 
     TutrdScaffold(
-        topBar = { HomeTopBar(title = currentMonthFormatted.yearMonth.displayText()) {} }
+        topBar = {
+            HomeTopBar(
+                title = currentMonthFormatted.yearMonth.displayText(),
+                onClickTitle = {},
+                onAddSession = {}
+            ) }
     ) { paddingValues ->
         BottomSheetScaffold(
             modifier = modifier
                 .padding(paddingValues),
             containerColor = Color.Transparent,
-            sheetContentColor = Color.Transparent,
+            sheetContentColor = Color.Black,
             sheetContainerColor = Color.White,
             sheetShadowElevation = 20.dp,
             scaffoldState = scaffoldState,

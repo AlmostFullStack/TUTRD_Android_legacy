@@ -11,12 +11,12 @@ import com.afs.tutrd.navigation.classroom.navigateToClassroom
 import com.afs.tutrd.navigation.classroom.screen.Classroom
 import com.afs.tutrd.navigation.home.navigateToHome
 import com.afs.tutrd.navigation.home.screen.Home
-import com.afs.tutrd.navigation.session.navigateToSession
+import com.afs.tutrd.navigation.sessionlist.navigateToSessionList
 import com.afs.tutrd.navigation.pay.navigateToPay
 import com.afs.tutrd.navigation.pay.screen.Pay
 import com.afs.tutrd.navigation.profile.navigateToProfile
 import com.afs.tutrd.navigation.profile.screen.Profile
-import com.afs.tutrd.navigation.session.screen.Session
+import com.afs.tutrd.navigation.sessionlist.screen.SessionList
 
 /**
  * Bottom Bar navigation 을 위해 작성한 navController
@@ -48,7 +48,7 @@ class TutrdNavController(
         return when (currentRoute) {
             Home::class.java.name -> BottomMenuTabs.HOME
             Profile::class.java.name -> BottomMenuTabs.PROFILE
-            Session::class.java.name -> BottomMenuTabs.SESSION
+            SessionList::class.java.name -> BottomMenuTabs.SESSIONLIST
             Pay::class.java.name -> BottomMenuTabs.PAY
             Classroom::class.java.name -> BottomMenuTabs.CLASSROOM
             else -> null
@@ -68,7 +68,7 @@ class TutrdNavController(
         when (route) {
             BottomMenuTabs.HOME -> navController.navigateToHome(navOptions)
             BottomMenuTabs.PROFILE -> navController.navigateToProfile(navOptions)
-            BottomMenuTabs.SESSION -> navController.navigateToSession(navOptions)
+            BottomMenuTabs.SESSIONLIST -> navController.navigateToSessionList(navOptions)
             BottomMenuTabs.PAY -> navController.navigateToPay(navOptions)
             BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptions)
         }
