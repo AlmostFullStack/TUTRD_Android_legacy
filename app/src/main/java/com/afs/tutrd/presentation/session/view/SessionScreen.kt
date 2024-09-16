@@ -1,11 +1,10 @@
-package com.afs.tutrd.presentation.sessiondetail.view
+package com.afs.tutrd.presentation.session.view
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.afs.tutrd.component.scaffold.TutrdScaffold
 
 @Composable
-fun SessionDetailScreen(modifier: Modifier) {
+fun SessionScreen(modifier: Modifier) {
 //    TutrdScaffold(
 //        topBar = {  }
 //    ) {
