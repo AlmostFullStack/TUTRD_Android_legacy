@@ -32,9 +32,9 @@ fun ColorDot(
         modifier = Modifier
             .size(
                 when(size) {
-                    is DotSize.Big -> 14.dp
-                    is DotSize.Medium -> 12.dp
-                    is DotSize.Small -> 8.dp
+                    DotSize.Big -> 18.dp
+                    DotSize.Medium -> 12.dp
+                    DotSize.Small -> 8.dp
                 }
             )
             .background(color, shape = CircleShape),

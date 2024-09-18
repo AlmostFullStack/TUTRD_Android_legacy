@@ -13,12 +13,21 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.datastore.dataStore
+import androidx.datastore.dataStoreFile
+import androidx.datastore.preferences.preferencesDataStoreFile
+import com.afs.tutrd.common.datastore.TUTEE
+import com.afs.tutrd.common.datastore.TUTOR
+import com.afs.tutrd.common.datastore.TutrdRoleDataStore
 import com.afs.tutrd.navigation.controller.BottomMenuTabs
 
 @Composable
@@ -27,6 +36,10 @@ fun BottomBar(
     current: BottomMenuTabs?,
     onClick: (BottomMenuTabs) -> Unit
 ) {
+    val context = LocalContext.current
+    val dataStore = TutrdRoleDataStore(context)
+    val tutrdRole = dataStore.getTutrdRole.collectAsState(initial = TUTEE)
+
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -36,13 +49,17 @@ fun BottomBar(
         verticalAlignment = Alignment.CenterVertically
     ) {
         BottomMenuTabs.entries.forEach { item ->
-            BottomBarItem(
-                modifier = Modifier.weight(1f),
-                iconId = item.iconId,
-                label = item.label,
-                selected = item == current,
-                onClick = { onClick(item) },
-            )
+            if(tutrdRole.value == TUTEE && item == BottomMenuTabs.PAY) Unit
+            else if(item == BottomMenuTabs.SESSION) Unit
+            else {
+                BottomBarItem(
+                    modifier = Modifier.weight(1f),
+                    iconId = item.iconId,
+                    label = item.label,
+                    selected = item == current,
+                    onClick = { onClick(item) },
+                )
+            }
         }
     }
 }

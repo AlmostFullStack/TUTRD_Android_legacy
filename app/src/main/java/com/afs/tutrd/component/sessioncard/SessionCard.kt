@@ -34,18 +34,21 @@ import com.afs.tutrd.domain.model.session.SessionStatus
 @Composable
 fun SessionCard(
 // session: Session?
+    onClickCard: () -> Unit
 ) {
-    Card {
+    Card(
+        onClick = { onClickCard() }
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth(),
-            verticalArrangement = Arrangement.SpaceEvenly
+            verticalArrangement = Arrangement.SpaceEvenly,
         ) {
             Row(modifier = Modifier
                 .height(26.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                ColorDot(color = Color.Blue, size = DotSize.Big)
+                ColorDot(color = Color.Blue, size = DotSize.Small)
                 Text(
                     modifier = Modifier
                         .padding(start = 12.dp),

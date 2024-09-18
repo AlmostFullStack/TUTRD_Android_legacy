@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.afs.tutrd.R
 import com.afs.tutrd.navigation.classroom.navigateToClassroom
 import com.afs.tutrd.navigation.classroom.screen.Classroom
 import com.afs.tutrd.navigation.home.navigateToHome
@@ -16,6 +17,8 @@ import com.afs.tutrd.navigation.pay.navigateToPay
 import com.afs.tutrd.navigation.pay.screen.Pay
 import com.afs.tutrd.navigation.profile.navigateToProfile
 import com.afs.tutrd.navigation.profile.screen.Profile
+import com.afs.tutrd.navigation.session.navigateToSession
+import com.afs.tutrd.navigation.session.screen.Session
 import com.afs.tutrd.navigation.sessionlist.screen.SessionList
 
 /**
@@ -26,7 +29,7 @@ import com.afs.tutrd.navigation.sessionlist.screen.SessionList
  */
 @Composable
 fun rememberTutrdNavController(navController: NavHostController = rememberNavController()) =
-    remember { TutrdNavController(navController = navController) }
+    remember { TutrdNavController(navController = navController) } //선언
 
 class TutrdNavController(
     val navController: NavHostController
@@ -51,13 +54,14 @@ class TutrdNavController(
             SessionList::class.java.name -> BottomMenuTabs.SESSIONLIST
             Pay::class.java.name -> BottomMenuTabs.PAY
             Classroom::class.java.name -> BottomMenuTabs.CLASSROOM
+            Session::class.java.name -> BottomMenuTabs.SESSION
             else -> null
         }
     }
 
     fun navigate(route: BottomMenuTabs) {
         if (route.qualifierName == navController.currentDestination?.route) return
-        val navOptions = navOptions {
+        val navOptionsNoAnim = navOptions {
             popUpTo(navController.graph.id) {
                 saveState = true
                 inclusive = false
@@ -65,12 +69,30 @@ class TutrdNavController(
             launchSingleTop  = true
             restoreState = true
         }
+        val navOptionsAnim = navOptions {
+            popUpTo(navController.graph.id) {
+                saveState = true
+                inclusive = false
+            }
+            launchSingleTop  = true
+            restoreState = true
+            anim {
+                // Slide in from the right
+                enter = R.anim.slide_in_right
+                exit = R.anim.slide_out_left
+
+                // Slide out to the right on pop
+                popEnter = R.anim.slide_out_left
+                popExit = R.anim.slide_in_right
+            }
+        }
         when (route) {
-            BottomMenuTabs.HOME -> navController.navigateToHome(navOptions)
-            BottomMenuTabs.PROFILE -> navController.navigateToProfile(navOptions)
-            BottomMenuTabs.SESSIONLIST -> navController.navigateToSessionList(navOptions)
-            BottomMenuTabs.PAY -> navController.navigateToPay(navOptions)
-            BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptions)
+            BottomMenuTabs.HOME -> navController.navigateToHome(navOptionsNoAnim)
+            BottomMenuTabs.PROFILE -> navController.navigateToProfile(navOptionsNoAnim)
+            BottomMenuTabs.SESSIONLIST -> navController.navigateToSessionList(navOptionsNoAnim)
+            BottomMenuTabs.PAY -> navController.navigateToPay(navOptionsNoAnim)
+            BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptionsNoAnim)
+            BottomMenuTabs.SESSION -> navController.navigateToSession(navOptionsAnim)
         }
     }
 }

@@ -7,6 +7,7 @@ import com.afs.tutrd.navigation.classroom.screen.Classroom
 import com.afs.tutrd.navigation.home.screen.Home
 import com.afs.tutrd.navigation.sessionlist.screen.SessionList
 import com.afs.tutrd.navigation.pay.screen.Pay
+import com.afs.tutrd.navigation.session.screen.Session
 
 // FIXME ui fix 되면 메뉴 추가
 
@@ -27,7 +28,7 @@ enum class BottomMenuTabs(
     SESSIONLIST(
         qualifierName = SessionList::class.java.name,
         iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
-        label = "session"
+        label = "sessionlist"
     ),
     PAY(
         qualifierName = Pay::class.java.name,
@@ -44,4 +45,13 @@ enum class BottomMenuTabs(
         iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
         label = "profile"
     ),
+    SESSION(
+        qualifierName = Session::class.java.name,
+        iconId = R.drawable.ic_launcher_foreground, // FIXME ui fix 되면 Icon 변경
+        label = "session"
+    )
+//    ADDSESSION
+//    ADDCLASSROOM
+//    HOMEWORK
+
 }

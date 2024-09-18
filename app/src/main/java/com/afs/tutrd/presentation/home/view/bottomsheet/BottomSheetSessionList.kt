@@ -13,7 +13,8 @@ import com.afs.tutrd.component.sessioncard.SessionCard
 
 @Composable
 fun BottomSheetSessionList(
-    screenHeight: Dp
+    screenHeight: Dp,
+    navigateSession: () -> Unit
 ) {
     Column(
         Modifier
@@ -22,9 +23,9 @@ fun BottomSheetSessionList(
             .padding(horizontal=4.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        SessionCard()
-        SessionCard()
-        SessionCard()
-        SessionCard()
+        SessionCard(navigateSession)
+        SessionCard(navigateSession)
+        SessionCard(navigateSession)
+        SessionCard(navigateSession)
     }
 }
