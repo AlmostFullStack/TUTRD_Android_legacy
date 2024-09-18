@@ -15,6 +15,7 @@ import com.afs.tutrd.navigation.home.screen.Home
 import com.afs.tutrd.navigation.sessionlist.sessionListScreen
 import com.afs.tutrd.navigation.pay.payScreen
 import com.afs.tutrd.navigation.profile.profileScreen
+import com.afs.tutrd.navigation.session.sessionScreen
 
 @Composable
 fun TutrdApp() {
@@ -22,6 +23,8 @@ fun TutrdApp() {
     val navController = tutrdNavController.navController
     val isVisibleBottomBar = tutrdNavController.isInBottomTabs()
     val currentTab = tutrdNavController.mapRouteToTab()
+
+    //routing functions
 
     TutrdScaffold(
         bottomBar = {
@@ -44,6 +47,7 @@ fun TutrdApp() {
             payScreen(modifier = Modifier.padding(it))
             classroomScreen(modifier = Modifier.padding(it))
             profileScreen(modifier = Modifier.padding(it))
+            sessionScreen(modifier = Modifier.padding(it))
         }
     }
 }

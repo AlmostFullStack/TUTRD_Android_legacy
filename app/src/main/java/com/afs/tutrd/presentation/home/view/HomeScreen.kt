@@ -19,6 +19,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.afs.tutrd.common.extension.collectInLaunchedEffectWithLifecycle
 import com.afs.tutrd.component.scaffold.TutrdScaffold
+import com.afs.tutrd.navigation.controller.BottomMenuTabs
+import com.afs.tutrd.navigation.controller.rememberTutrdNavController
 import com.afs.tutrd.presentation.home.contract.HomeIntent
 import com.afs.tutrd.presentation.home.contract.HomeSideEffect
 import com.afs.tutrd.presentation.home.stateholder.rememberFirstMostVisibleMonth
@@ -60,6 +62,9 @@ fun HomeScreen(
     val screenHeight = LocalConfiguration.current.screenHeightDp.dp
     val sheetPeekHeight = screenHeight - calendarHeight
 
+    //navigation
+    val tutrdNavController = rememberTutrdNavController()
+
 
     TutrdScaffold(
         topBar = {
@@ -80,7 +85,8 @@ fun HomeScreen(
             sheetPeekHeight = sheetPeekHeight,
             sheetContent = {
                 BottomSheetSessionList(
-                    screenHeight
+                    screenHeight,
+                    navigateSession = { tutrdNavController.navigate(BottomMenuTabs.SESSION) }
                 )
             }
         ) {

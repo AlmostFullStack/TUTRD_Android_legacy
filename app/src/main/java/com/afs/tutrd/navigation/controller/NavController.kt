@@ -16,6 +16,8 @@ import com.afs.tutrd.navigation.pay.navigateToPay
 import com.afs.tutrd.navigation.pay.screen.Pay
 import com.afs.tutrd.navigation.profile.navigateToProfile
 import com.afs.tutrd.navigation.profile.screen.Profile
+import com.afs.tutrd.navigation.session.navigateToSession
+import com.afs.tutrd.navigation.session.screen.Session
 import com.afs.tutrd.navigation.sessionlist.screen.SessionList
 
 /**
@@ -26,7 +28,7 @@ import com.afs.tutrd.navigation.sessionlist.screen.SessionList
  */
 @Composable
 fun rememberTutrdNavController(navController: NavHostController = rememberNavController()) =
-    remember { TutrdNavController(navController = navController) }
+    remember { TutrdNavController(navController = navController) } //선언
 
 class TutrdNavController(
     val navController: NavHostController
@@ -51,6 +53,7 @@ class TutrdNavController(
             SessionList::class.java.name -> BottomMenuTabs.SESSIONLIST
             Pay::class.java.name -> BottomMenuTabs.PAY
             Classroom::class.java.name -> BottomMenuTabs.CLASSROOM
+            Session::class.java.name -> BottomMenuTabs.SESSION
             else -> null
         }
     }
@@ -71,6 +74,8 @@ class TutrdNavController(
             BottomMenuTabs.SESSIONLIST -> navController.navigateToSessionList(navOptions)
             BottomMenuTabs.PAY -> navController.navigateToPay(navOptions)
             BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptions)
+            BottomMenuTabs.SESSION -> navController.navigateToSession(navOptions)
+
         }
     }
 }

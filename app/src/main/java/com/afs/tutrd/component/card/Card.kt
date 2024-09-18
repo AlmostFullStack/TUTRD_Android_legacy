@@ -1,6 +1,8 @@
 package com.afs.tutrd.component.card
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,12 +16,16 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun Card(
-    content: @Composable () -> Unit = {},
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {},
+    content: @Composable () -> Unit,
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(color = Color.White, shape = RoundedCornerShape(8.dp))
             .padding(horizontal = 16.dp, vertical = 12.dp)
+            .clickable { onClick() },
+        verticalArrangement = Arrangement.spacedBy(14.dp)
     ) { content() }
 }

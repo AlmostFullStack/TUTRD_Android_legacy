@@ -17,6 +17,7 @@ import com.afs.tutrd.theme.Tutrd
 
 sealed class DotSize {
     data object Big : DotSize()
+    data object Medium: DotSize()
     data object Small : DotSize()
 }
 
@@ -30,7 +31,11 @@ fun ColorDot(
         imageVector = Icons.Filled.Check,
         contentDescription = "eventDot",
         modifier = Modifier
-            .size(if (size == DotSize.Small) 8.dp else 14.dp)
+            .size(
+                if (size == DotSize.Small) 8.dp
+                else if(size == DotSize.Medium) 12.dp
+                else 18.dp
+            )
             .background(color, shape = CircleShape),
         tint = color
     )
