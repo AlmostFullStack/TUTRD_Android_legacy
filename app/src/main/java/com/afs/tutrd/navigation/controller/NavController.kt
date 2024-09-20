@@ -60,7 +60,7 @@ class TutrdNavController(
 
     fun navigate(route: BottomMenuTabs) {
         if (route.qualifierName == navController.currentDestination?.route) return
-        val navOptions = navOptions {
+        val navOptionsPopUp = navOptions {
             popUpTo(navController.graph.id) {
                 saveState = true
                 inclusive = false
@@ -68,14 +68,17 @@ class TutrdNavController(
             launchSingleTop  = true
             restoreState = true
         }
+        val navOptionsNoPopUp = navOptions {
+            launchSingleTop  = true
+            restoreState = true
+        }
         when (route) {
-            BottomMenuTabs.HOME -> navController.navigateToHome(navOptions)
-            BottomMenuTabs.PROFILE -> navController.navigateToProfile(navOptions)
-            BottomMenuTabs.SESSIONLIST -> navController.navigateToSessionList(navOptions)
-            BottomMenuTabs.PAY -> navController.navigateToPay(navOptions)
-            BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptions)
-            BottomMenuTabs.SESSION -> navController.navigateToSession(navOptions)
-
+            BottomMenuTabs.HOME -> navController.navigateToHome(navOptionsPopUp)
+            BottomMenuTabs.PROFILE -> navController.navigateToProfile(navOptionsPopUp)
+            BottomMenuTabs.SESSIONLIST -> navController.navigateToSessionList(navOptionsPopUp)
+            BottomMenuTabs.PAY -> navController.navigateToPay(navOptionsPopUp)
+            BottomMenuTabs.CLASSROOM -> navController.navigateToClassroom(navOptionsPopUp)
+            BottomMenuTabs.SESSION -> navController.navigateToSession(navOptionsNoPopUp)
         }
     }
 }

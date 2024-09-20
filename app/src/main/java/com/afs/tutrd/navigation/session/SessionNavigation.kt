@@ -1,5 +1,7 @@
 package com.afs.tutrd.navigation.session
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -9,10 +11,17 @@ import com.afs.tutrd.navigation.session.screen.Session
 import com.afs.tutrd.presentation.session.view.SessionScreen
 
 internal fun NavGraphBuilder.sessionScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateUp: () -> Unit
 ) {
-    composable<Session> {
-        SessionScreen(modifier = modifier)
+    composable<Session>(
+        enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left, tween(300)) },
+//        exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right, tween(300)) }
+    ) {
+        SessionScreen(
+            modifier = modifier,
+            navigateUp = navigateUp
+        )
     }
 }
 

@@ -16,6 +16,8 @@ import com.afs.tutrd.navigation.sessionlist.sessionListScreen
 import com.afs.tutrd.navigation.pay.payScreen
 import com.afs.tutrd.navigation.profile.profileScreen
 import com.afs.tutrd.navigation.session.sessionScreen
+import android.util.Log
+import androidx.navigation.compose.composable
 
 @Composable
 fun TutrdApp() {
@@ -41,13 +43,24 @@ fun TutrdApp() {
             startDestination = Home,
             enterTransition = { EnterTransition.None },
             exitTransition = { ExitTransition.None }
-        ) {
-            homeScreen(modifier = Modifier.padding(it))
-            sessionListScreen(modifier = Modifier.padding(it))
+        ) { ->
+            homeScreen(
+                modifier = Modifier.padding(it),
+                navigateToSession = { tutrdNavController.navigate(BottomMenuTabs.SESSION) }
+            )
+            sessionListScreen(
+                modifier = Modifier.padding(it),
+                navigateToSession = { tutrdNavController.navigate(BottomMenuTabs.SESSION) }
+            )
             payScreen(modifier = Modifier.padding(it))
             classroomScreen(modifier = Modifier.padding(it))
             profileScreen(modifier = Modifier.padding(it))
-            sessionScreen(modifier = Modifier.padding(it))
+            sessionScreen(
+                modifier = Modifier.padding(it),
+                navigateUp = {
+                    val res = tutrdNavController.navController.navigateUp()
+                    Log.d("@@@ROUTING", "backstack clicked with result: $res")
+                })
         }
     }
 }
