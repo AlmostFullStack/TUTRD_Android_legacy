@@ -1,5 +1,7 @@
 package com.afs.tutrd.navigation.session
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -12,7 +14,9 @@ internal fun NavGraphBuilder.sessionScreen(
     modifier: Modifier = Modifier,
     navigateUp: () -> Unit
 ) {
-    composable<Session> {
+    composable<Session>(
+        enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left, tween(300))}
+    ) {
         SessionScreen(
             modifier = modifier,
             navigateUp = navigateUp)
