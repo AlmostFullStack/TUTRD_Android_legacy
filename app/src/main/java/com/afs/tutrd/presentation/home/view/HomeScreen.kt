@@ -37,7 +37,8 @@ import com.kizitonwose.calendar.core.yearMonth
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    navigateToSession: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -86,7 +87,7 @@ fun HomeScreen(
             sheetContent = {
                 BottomSheetSessionList(
                     screenHeight,
-                    navigateSession = { tutrdNavController.navigate(BottomMenuTabs.SESSION) }
+                    navigateSession = { navigateToSession() }
                 )
             }
         ) {

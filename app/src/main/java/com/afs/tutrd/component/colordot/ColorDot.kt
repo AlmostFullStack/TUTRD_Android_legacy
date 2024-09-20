@@ -2,7 +2,6 @@ package com.afs.tutrd.component.colordot
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -17,7 +16,7 @@ import com.afs.tutrd.theme.Tutrd
 
 sealed class DotSize {
     data object Big : DotSize()
-    data object Medium: DotSize()
+    data object Medium : DotSize()
     data object Small : DotSize()
 }
 
@@ -32,9 +31,11 @@ fun ColorDot(
         contentDescription = "eventDot",
         modifier = Modifier
             .size(
-                if (size == DotSize.Small) 8.dp
-                else if(size == DotSize.Medium) 12.dp
-                else 18.dp
+                when(size) {
+                    DotSize.Big -> 18.dp
+                    DotSize.Medium -> 12.dp
+                    DotSize.Small -> 8.dp
+                }
             )
             .background(color, shape = CircleShape),
         tint = color
@@ -43,7 +44,7 @@ fun ColorDot(
 
 @Preview
 @Composable
-fun preview() {
+fun ColorDotPreview() {
     Row() {
         ColorDot(
             Tutrd,

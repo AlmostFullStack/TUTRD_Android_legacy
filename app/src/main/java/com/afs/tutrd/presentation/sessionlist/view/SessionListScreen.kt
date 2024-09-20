@@ -43,6 +43,7 @@ fun DateDivider(date: Int) {
 @Composable
 fun SessionListScreen(
     modifier: Modifier,
+    navigateToSession: () -> Unit,
     classroomViewModel: SharedClassroomViewModel = hiltViewModel()
 ) {
     val classroomState by classroomViewModel.classroomState.collectAsStateWithLifecycle()

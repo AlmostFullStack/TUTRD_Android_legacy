@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,6 +44,7 @@ fun SessionTopBar(
                 Image(painter = painterResource(id =  R.drawable.button_prev), contentDescription = "see more")
             }
         )
+        Spacer(modifier = Modifier.width(8.dp))
         Text(
             modifier = Modifier,
             text = "수업 상세정보",

@@ -9,10 +9,13 @@ import com.afs.tutrd.navigation.sessionlist.screen.SessionList
 import com.afs.tutrd.presentation.sessionlist.view.SessionListScreen
 
 internal fun NavGraphBuilder.sessionListScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateToSession: () -> Unit
 ) {
     composable<SessionList> {
-        SessionListScreen(modifier = modifier)
+        SessionListScreen(
+            modifier = modifier,
+            navigateToSession = navigateToSession)
     }
 }
 

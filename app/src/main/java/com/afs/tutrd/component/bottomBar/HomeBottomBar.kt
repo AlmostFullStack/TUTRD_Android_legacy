@@ -50,7 +50,7 @@ fun BottomBar(
     ) {
         BottomMenuTabs.entries.forEach { item ->
             if(tutrdRole.value == TUTEE && item == BottomMenuTabs.PAY) Unit
-//            else if(item == BottomMenuTabs.SESSION) Unit
+            else if(item == BottomMenuTabs.SESSION) Unit
             else {
                 BottomBarItem(
                     modifier = Modifier.weight(1f),

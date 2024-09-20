@@ -16,11 +16,14 @@ import com.afs.tutrd.component.scaffold.TutrdScaffold
 import com.afs.tutrd.theme.TutrdBackground
 
 @Composable
-fun SessionScreen(modifier: Modifier) {
+fun SessionScreen(
+    modifier: Modifier,
+    navigateUp: () -> Unit
+) {
     TutrdScaffold(
         topBar = {
             SessionTopBar(
-                onClickPrev = { },
+                onClickPrev = { navigateUp() },
                 onClickMore = { }
             )
         }

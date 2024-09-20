@@ -10,10 +10,14 @@ import com.afs.tutrd.navigation.home.screen.Home
 
 
 internal fun NavGraphBuilder.homeScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navigateToSession: () -> Unit
 ) {
     composable<Home> {
-        HomeScreen(modifier = modifier)
+        HomeScreen(
+            modifier = modifier,
+            navigateToSession = navigateToSession
+        )
     }
 }
 
