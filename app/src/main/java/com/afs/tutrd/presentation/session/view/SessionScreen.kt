@@ -67,10 +67,8 @@ fun SessionScreen(
                         onUnCheck = {}
                     )
                     CheckListInputItem(
-                        onCheck = { /*TODO*/ }
-                    ) {
-
-                    }
+                        onCreateHomework = {}
+                    )
                 }
             }
             Card {
