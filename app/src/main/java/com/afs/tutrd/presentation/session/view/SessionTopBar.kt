@@ -57,8 +57,7 @@ fun SessionTopBar(
         IconButton(
             onClick = { onClickMore() },
             modifier = Modifier
-                .size(28.dp)
-                .rotate(90f),
+                .size(28.dp),
             content = {
                 Image(painter = painterResource(id =  R.drawable.button_more), contentDescription = "see more")
             }

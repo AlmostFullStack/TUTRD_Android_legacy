@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -66,7 +67,8 @@ fun SessionCard(
                 IconButton(
                     onClick = { /*TODO*/ },
                     modifier = Modifier
-                        .size(size=20.dp),
+                        .size(size=20.dp)
+                        .rotate(90f),
                     content = {
                         Image(painter = painterResource(id =  R.drawable.button_more), contentDescription = "see more")
                     }

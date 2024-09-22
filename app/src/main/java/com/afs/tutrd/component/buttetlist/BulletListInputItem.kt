@@ -1,13 +1,10 @@
-package com.afs.tutrd.component.checklist
+package com.afs.tutrd.component.buttetlist
 
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,12 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.text.input.TextFieldState
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,36 +24,33 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.HorizontalAlignmentLine
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.afs.tutrd.theme.CheckBox_Unchecked
-
+import com.afs.tutrd.theme.LightGray
 
 @Composable
-private fun CheckBoxUnSelected() {
+private fun BulletPoint() {
     Box(
-        modifier = Modifier
-            .size(22.dp)
-            .clip(RoundedCornerShape(4.dp))
-            .border(width = 1.dp, color = CheckBox_Unchecked, shape = RoundedCornerShape(4.dp))
-            .clickable { }
-    )
+        modifier = Modifier.size(22.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Box(
+            modifier = Modifier
+                .size(4.dp)
+                .background(LightGray, shape = CircleShape),
+        )
+    }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun CheckListInputItem(
+fun BulletListInputItem(
     placeholderText: String,
     onSubmit: (content: String) -> Unit
 ) {
@@ -68,10 +60,9 @@ fun CheckListInputItem(
 
 
     Row(
-        modifier = Modifier.height(IntrinsicSize.Min),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        CheckBoxUnSelected()
+        BulletPoint()
         Spacer(modifier = Modifier.width(8.dp))
         Box(
             modifier = Modifier
@@ -118,15 +109,14 @@ fun CheckListInputItem(
                 })
             )
         }
-
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun P() {
-    CheckListInputItem(
-        placeholderText = "과제를 입력하세요",
+fun PreviewBulletListInputItem() {
+    BulletListInputItem(
+        placeholderText = "진도를 입력하세요",
         onSubmit = {}
     )
 }
