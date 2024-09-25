@@ -15,7 +15,9 @@ internal fun NavGraphBuilder.sessionScreen(
     navigateUp: () -> Unit
 ) {
     composable<Session>(
-        enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left, tween(300))}
+        enterTransition = { slideIntoContainer(AnimatedContentTransitionScope.SlideDirection.Left, tween(300)) },
+        exitTransition = { slideOutOfContainer(AnimatedContentTransitionScope.SlideDirection.Right, tween(300))}
+
     ) {
         SessionScreen(
             modifier = modifier,

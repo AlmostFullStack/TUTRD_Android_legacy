@@ -96,8 +96,7 @@ fun CheckListInputItem(
             BasicTextField(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(vertical = 2.dp)
-                ,
+                    .padding(vertical = 2.dp),
                 value = textState,
                 onValueChange = { textState = it },
                 textStyle = TextStyle(
@@ -108,7 +107,6 @@ fun CheckListInputItem(
                 ),
                 interactionSource = interactionSource,
                 singleLine = true,
-
                 keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = {
                     if(textState.text.isNotEmpty()) {
