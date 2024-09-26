@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 fun Card(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
-    content: @Composable () -> Unit,
+    content: @Composable () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -26,6 +26,6 @@ fun Card(
             .background(color = Color.White, shape = RoundedCornerShape(8.dp))
             .padding(horizontal = 16.dp, vertical = 12.dp)
             .clickable { onClick() },
-        verticalArrangement = Arrangement.spacedBy(14.dp)
+        verticalArrangement = Arrangement.spacedBy(12.dp) //FIXME
     ) { content() }
 }

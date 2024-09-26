@@ -1,4 +1,4 @@
-package com.afs.tutrd.component.dropDown
+package com.afs.tutrd.component.input
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
