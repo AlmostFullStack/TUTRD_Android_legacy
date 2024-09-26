@@ -13,7 +13,7 @@ internal fun NavGraphBuilder.classroomScreen(
     modifier: Modifier = Modifier
 ) {
     composable<Classroom> {
-        ClassroomScreen()
+        ClassroomScreen(modifier)
     }
 }
 
